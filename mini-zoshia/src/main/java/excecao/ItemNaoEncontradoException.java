@@ -1,0 +1,8 @@
+package excecao;
+
+public class ItemNaoEncontradoException extends Exception {
+
+    public ItemNaoEncontradoException(String mensagem) {
+        super(mensagem);
+    }
+}
