@@ -1,3 +1,4 @@
+
 package servico;
 
 import java.util.ArrayList;
@@ -11,33 +12,77 @@ public class ProdutoService {
 
     private final List<Produto> produtos = new ArrayList<>();
 
+    // CADASTRAR PRODUTO
     public void adicionar(Produto produto) throws ValidacaoException {
+
+        if (produto == null) {
+            throw new ValidacaoException("Produto inválido.");
+        }
+
+        for (Produto p : produtos) {
+            if (p.getCodigo().equalsIgnoreCase(produto.getCodigo())) {
+                throw new ValidacaoException("Já existe um produto com esse código.");
+            }
+        }
+
         produtos.add(produto);
     }
 
+    // LISTAR PRODUTOS
     public List<Produto> listar() {
         return new ArrayList<>(produtos);
     }
 
-    public Produto buscarPorCodigo(String codigo) throws ItemNaoEncontradoException {
-        for (Produto produto : produtos) {
-            if (produto.getCodigo().equalsIgnoreCase(codigo)) {
-                return produto;
+    // BUSCAR POR CÓDIGO
+    public Produto buscarPorCodigo(String codigo)
+            throws ItemNaoEncontradoException {
+
+        for (Produto p : produtos) {
+            if (p.getCodigo().equalsIgnoreCase(codigo)) {
+                return p;
             }
         }
-        throw new ItemNaoEncontradoException("Produto não encontrado: " + codigo);
+
+        throw new ItemNaoEncontradoException(
+                "Produto não encontrado: " + codigo
+        );
     }
 
+    // BUSCAR POR NOME
     public List<Produto> buscarPorNome(String nome) {
-        throw new UnsupportedOperationException();
+
+        List<Produto> encontrados = new ArrayList<>();
+
+        for (Produto p : produtos) {
+            if (p.getNome().toLowerCase()
+                    .contains(nome.toLowerCase())) {
+                encontrados.add(p);
+            }
+        }
+
+        return encontrados;
     }
 
-    public void editar(String codigo, String nome, String categoria, double custo, double venda)
+    // EDITAR PRODUTO
+    public void editar(String codigo, String nome,
+                       String categoria, double custo, double venda)
             throws ItemNaoEncontradoException, ValidacaoException {
-        throw new UnsupportedOperationException();
+
+        Produto p = buscarPorCodigo(codigo);
+
+        p.setNome(nome);
+        p.setCategoria(categoria);
+        p.setPrecoCusto(custo);
+        p.setPrecoVenda(venda);
+
+        // A quantidade em estoque não é alterada aqui.
     }
 
-    public void alterarStatus(String codigo, boolean ativo) throws ItemNaoEncontradoException {
-        throw new UnsupportedOperationException();
+    // ATIVAR OU INATIVAR PRODUTO
+    public void alterarStatus(String codigo, boolean ativo)
+            throws ItemNaoEncontradoException {
+
+        Produto p = buscarPorCodigo(codigo);
+        p.setAtivo(ativo);
     }
 }
