@@ -1,0 +1,8 @@
+package mercadoZoshia.exceptions;
+
+public class ItemNaoEncontradoException extends Exception {
+
+    public ItemNaoEncontradoException(String mensagem) {
+        super(mensagem);
+    }
+}

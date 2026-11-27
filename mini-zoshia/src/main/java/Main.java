@@ -1,16 +1,16 @@
-import menu.MenuEstoque;
-import menu.MenuFinanceiro;
-import menu.MenuFornecedores;
-import menu.MenuFuncionarios;
-import menu.MenuPrincipal;
-import menu.MenuProdutos;
-import menu.MenuVendas;
-import servico.EstoqueService;
-import servico.FinanceiroService;
-import servico.FornecedorService;
-import servico.FuncionarioService;
-import servico.ProdutoService;
-import servico.VendaService;
+import mercadoZoshia.menu.MenuEstoque;
+import mercadoZoshia.menu.MenuFinanceiro;
+import mercadoZoshia.menu.MenuFornecedores;
+import mercadoZoshia.menu.MenuFuncionarios;
+import mercadoZoshia.menu.MenuPrincipal;
+import mercadoZoshia.menu.MenuProdutos;
+import mercadoZoshia.menu.MenuVendas;
+import mercadoZoshia.service.EstoqueService;
+import mercadoZoshia.service.FinanceiroService;
+import mercadoZoshia.service.FornecedorService;
+import mercadoZoshia.service.FuncionarioService;
+import mercadoZoshia.service.ProdutoService;
+import mercadoZoshia.service.VendaService;
 
 public class Main {
 
