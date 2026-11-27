@@ -1,4 +1,4 @@
-package pagamento;
+package modelo.pagamento;
 
 import excecao.ValidacaoException;
 
