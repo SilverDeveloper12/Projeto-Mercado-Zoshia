@@ -6,7 +6,7 @@ import java.util.List;
 import excecao.EstoqueInsuficienteException;
 import excecao.ValidacaoException;
 import modelo.Venda;
-import pagamento.FormaPagamento;
+import modelo.pagamento.FormaPagamento;
 
 public class VendaService {
 

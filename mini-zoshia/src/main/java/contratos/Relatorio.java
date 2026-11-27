@@ -1,4 +1,5 @@
 package contratos;
 
-public class Relatorio {
+public interface Relatorio {
+    String gerarRelatorio();
 }

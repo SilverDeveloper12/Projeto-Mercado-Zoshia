@@ -1,4 +1,5 @@
 package contratos;
 
-public class pagavel {
+public interface Pagavel {
+    double calcularPagamento();
 }

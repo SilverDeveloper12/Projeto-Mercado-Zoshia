@@ -16,8 +16,7 @@ public class EstoqueService {
     private final ProdutoService produtoService;
     private final List<MovimentacaoEstoque> historico = new ArrayList<>();
 
-    public EstoqueService(ProdutoService produtoService) {
-        this.produtoService = produtoService;
+    public EstoqueService(ProdutoService produtoService) {this.produtoService = produtoService;
     }
 
     public void registrarEntrada(Produto produto, int quantidade, String motivo, Fornecedor fornecedor,
@@ -33,14 +32,26 @@ public class EstoqueService {
     }
 
     public List<Produto> listarEstoqueBaixo(int limite) {
-        throw new UnsupportedOperationException();
+        List<Produto> resultado = new ArrayList<>();
+        for (Produto p : produtoService.listar()) {
+            if (p.getQuantidade() <= limite) {
+                resultado.add(p);
+            }
+        }
+        return resultado;
     }
 
     public List<Produto> listarZerados() {
-        throw new UnsupportedOperationException();
+        return listarEstoqueBaixo(0);
     }
 
     public List<MovimentacaoEstoque> historicoDoProduto(String codigo) {
-        throw new UnsupportedOperationException();
+        List<MovimentacaoEstoque> resultado = new ArrayList<>();
+        for (MovimentacaoEstoque m : historico) {
+            if (m.getProduto().getCodigo().equals(codigo)) {
+                resultado.add(m);
+            }
+        }
+        return resultado;
     }
 }

@@ -19,6 +19,6 @@ public class ItemVenda {
     }
 
     public double getSubtotal() {
-        return produto.getPrecoVenda() * quantidade;
+        return produto.calcularPreco() * quantidade;
     }
 }
