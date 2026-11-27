@@ -29,6 +29,8 @@ public class MenuFuncionarios {
             System.out.println("4 - Buscar por nome");
             System.out.println("5 - Editar funcionário");
             System.out.println("6 - Ativar/Inativar funcionário");
+            System.out.println("7 - Listar apenas ativos");
+            System.out.println("8 - Buscar por cargo");
             System.out.println("0 - Voltar");
 
             opcao = Entrada.lerInt("Escolha: ");
@@ -58,6 +60,14 @@ public class MenuFuncionarios {
 
                     case 6:
                         alterarStatus();
+                        break;
+
+                    case 7:
+                        listarAtivos();
+                        break;
+
+                    case 8:
+                        buscarCargo();
                         break;
 
                     case 0:
@@ -140,6 +150,8 @@ public class MenuFuncionarios {
 
         int id = Entrada.lerInt("ID do funcionário: ");
 
+        System.out.println("(deixe vazio para manter o valor atual)");
+
         String nome = Entrada.lerTexto("Novo nome: ");
         String telefone = Entrada.lerTexto("Novo telefone: ");
         String email = Entrada.lerTexto("Novo e-mail: ");
@@ -171,4 +183,36 @@ public class MenuFuncionarios {
 
         System.out.println("Status atualizado!");
     }
+
+    private void listarAtivos() {
+
+        List<Funcionario> ativos = funcionarioService.listarAtivos();
+
+        if (ativos.isEmpty()) {
+            System.out.println("Nenhum funcionário ativo.");
+            return;
+        }
+
+        for (Funcionario f : ativos) {
+            System.out.println(f);
+        }
+    }
+
+    private void buscarCargo() {
+
+        String cargo = Entrada.lerTexto("Digite o cargo: ");
+
+        List<Funcionario> encontrados =
+                funcionarioService.buscarPorCargo(cargo);
+
+        if (encontrados.isEmpty()) {
+            System.out.println("Nenhum funcionário encontrado.");
+            return;
+        }
+
+        for (Funcionario f : encontrados) {
+            System.out.println(f);
+        }
+    }
 }
+
