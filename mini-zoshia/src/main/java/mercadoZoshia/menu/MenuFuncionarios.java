@@ -7,7 +7,7 @@ import mercadoZoshia.exceptions.ItemNaoEncontradoException;
 import mercadoZoshia.exceptions.ValidacaoException;
 import mercadoZoshia.model.Funcionario;
 import mercadoZoshia.service.FuncionarioService;
-import util.Entrada;
+import mercadoZoshia.util.Entrada;
 
 public class MenuFuncionarios {
 

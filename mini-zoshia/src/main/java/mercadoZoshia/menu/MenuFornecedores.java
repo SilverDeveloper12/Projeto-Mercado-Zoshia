@@ -7,7 +7,7 @@ import mercadoZoshia.exceptions.ItemNaoEncontradoException;
 import mercadoZoshia.exceptions.ValidacaoException;
 import mercadoZoshia.model.Fornecedor;
 import mercadoZoshia.service.FornecedorService;
-import util.Entrada;
+import mercadoZoshia.util.Entrada;
 
 public class MenuFornecedores {
 

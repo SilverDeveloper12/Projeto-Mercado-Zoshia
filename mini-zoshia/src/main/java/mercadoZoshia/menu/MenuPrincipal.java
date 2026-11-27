@@ -1,6 +1,6 @@
 package mercadoZoshia.menu;
 
-import util.Entrada;
+import mercadoZoshia.util.Entrada;
 
 public class MenuPrincipal {
 

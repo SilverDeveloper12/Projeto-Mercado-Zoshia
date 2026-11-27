@@ -9,7 +9,7 @@ import mercadoZoshia.model.Produto;
 import mercadoZoshia.model.ProdutoPerecivel;
 import mercadoZoshia.model.ProdutoNaoPerecivel;
 import mercadoZoshia.service.ProdutoService;
-import util.Entrada;
+import mercadoZoshia.util.Entrada;
 
 public class MenuProdutos {
 

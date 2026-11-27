@@ -1,4 +1,4 @@
-package util;
+package mercadoZoshia.util;
 
 import java.util.Scanner;
 
